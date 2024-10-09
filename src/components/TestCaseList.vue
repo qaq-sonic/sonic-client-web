@@ -30,7 +30,7 @@ const getTestCaseList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/testCases/list', {
+    .get('/testCases/list', {
       params: {
         projectId: props.projectId,
         moduleIds: moduleIds.value.length > 0 ? moduleIds.value : undefined,
@@ -51,7 +51,7 @@ const getTestCaseList = (pageNum, pSize) => {
 };
 const deleteCase = (id) => {
   axios
-    .delete('/controller/testCases', {
+    .delete('/testCases', {
       params: {
         id,
       },
@@ -67,7 +67,7 @@ const deleteCase = (id) => {
 };
 const copy = (id) => {
   axios
-    .get('/controller/testCases/copy', {
+    .get('/testCases/copy', {
       params: {
         id,
       },
@@ -112,7 +112,7 @@ const flush = () => {
 const moduleList = ref([]);
 const getModuleList = () => {
   axios
-    .get('/controller/modules/list', { params: { projectId: props.projectId } })
+    .get('/modules/list', { params: { projectId: props.projectId } })
     .then((resp) => {
       if (resp.code === 2000) {
         resp.data.map((item) => {
@@ -125,7 +125,7 @@ const getModuleList = () => {
 const caseAuthorList = ref([]);
 const getCaseAuthorList = () => {
   axios
-    .get('/controller/testCases/listAllCaseAuthor', {
+    .get('/testCases/listAllCaseAuthor', {
       params: {
         projectId: props.projectId,
         platform: props.platform,

@@ -33,7 +33,7 @@ const findByProjectIdAndEleType = (event, pageNum, pSize) => {
   if (event) {
     props.step.elements[props.index] = null;
     axios
-      .get('/controller/elements/list', {
+      .get('/elements/list', {
         params: {
           name: name.value,
           projectId: props.projectId,
@@ -86,7 +86,7 @@ const findByProjectIdAndEleType = (event, pageNum, pSize) => {
 const moduleList = ref([]);
 const getModuleList = () => {
   axios
-    .get('/controller/modules/list', { params: { projectId: props.projectId } })
+    .get('/modules/list', { params: { projectId: props.projectId } })
     .then((resp) => {
       if (resp.code === 2000) {
         moduleList.value = resp.data;

@@ -35,7 +35,7 @@ const props = defineProps({
 const selObj = statusList[props.status] || { type: 'danger' };
 const stopDebug = () => {
   axios
-    .get('/controller/devices/stopDebug', { params: { udId: props.udId } })
+    .get('/devices/stopDebug', { params: { udId: props.udId } })
     .then((resp) => {
       if (resp.code === 2000) {
         ElMessage.success({

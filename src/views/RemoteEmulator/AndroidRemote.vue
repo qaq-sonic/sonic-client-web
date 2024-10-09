@@ -254,7 +254,7 @@ const saveEle = () => {
       element.value.eleType = 'image';
       element.value.eleValue = imgElementUrl.value;
       element.value.projectId = project.value.id;
-      axios.put('/controller/elements', element.value).then((resp) => {
+      axios.put('/elements', element.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,
@@ -1654,7 +1654,7 @@ onBeforeUnmount(() => {
 });
 const getDeviceById = (id) => {
   loading.value = true;
-  axios.get('/controller/devices', { params: { id } }).then((resp) => {
+  axios.get('/devices', { params: { id } }).then((resp) => {
     if (resp.code === 2000) {
       device.value = resp.data;
       if (device.value.status !== 'ONLINE') {
@@ -1665,7 +1665,7 @@ const getDeviceById = (id) => {
         return;
       }
       axios
-        .get('/controller/agents', { params: { id: device.value.agentId } })
+        .get('/agents', { params: { id: device.value.agentId } })
         .then((resp) => {
           if (resp.code === 2000) {
             agent.value = resp.data;
@@ -1726,7 +1726,7 @@ const resetAudioPlayer = () => {
   });
 };
 const getProjectList = () => {
-  axios.get('/controller/projects/list').then((resp) => {
+  axios.get('/projects/list').then((resp) => {
     store.commit('saveProjectList', resp.data);
   });
 };
@@ -1756,7 +1756,7 @@ onMounted(() => {
 const remoteTimeout = ref(0);
 const ticker = ref(0);
 const getRemoteTimeout = () => {
-  axios.get('/controller/confList/getRemoteTimeout').then((resp) => {
+  axios.get('/confList/getRemoteTimeout').then((resp) => {
     remoteTimeout.value = resp.data;
     setInterval(() => {
       ticker.value += 1;
@@ -1765,7 +1765,7 @@ const getRemoteTimeout = () => {
 };
 const idleTimeout = ref(0);
 const getIdleTimeout = () => {
-  axios.get('/controller/confList/getIdleTimeout').then((resp) => {
+  axios.get('/confList/getIdleTimeout').then((resp) => {
     idleTimeout.value = resp.data;
   });
 };

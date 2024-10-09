@@ -32,7 +32,7 @@ const config = ref({
   ldapEnable: false,
 });
 const getLoginConfig = () => {
-  axios.get('/controller/users/loginConfig').then((resp) => {
+  axios.get('/users/loginConfig').then((resp) => {
     if (resp.code === 2000) {
       configLoading.value = false;
       config.value = resp.data;
@@ -41,7 +41,7 @@ const getLoginConfig = () => {
 };
 const loginPost = (u) => {
   loading.value = true;
-  axios.post('/controller/users/login', u).then((resp) => {
+  axios.post('/users/login', u).then((resp) => {
     loading.value = false;
     if (resp.code === 2000) {
       store.commit('changeLogin', resp.data);
@@ -69,7 +69,7 @@ const registerIn = () => {
       await store.commit('clearAuth');
       loading.value = true;
       await axios
-        .post('/controller/users/register', register.value)
+        .post('/users/register', register.value)
         .then((resp) => {
           loading.value = false;
           if (resp.code === 2000) {

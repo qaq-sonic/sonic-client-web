@@ -54,7 +54,7 @@ const emit = defineEmits([
 ]);
 const switchStep = (id, e) => {
   axios
-    .get('/controller/steps/switchStep', {
+    .get('/steps/switchStep', {
       params: {
         id,
         type: e,
@@ -106,7 +106,7 @@ const sortStep = (e) => {
     }
   }
   axios
-    .put('/controller/steps/stepSort', {
+    .put('/steps/stepSort', {
       caseId,
       direction,
       startId,

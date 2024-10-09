@@ -38,7 +38,7 @@ const updateUserRole = (userRole) => {
   const data = new FormData();
   data.append('roleId', userRole.roleId);
   data.append('userId', userRole.id);
-  axios.put('/controller/users/changeRole', data).then((resp) => {
+  axios.put('/users/changeRole', data).then((resp) => {
     if (resp.code === 2000) {
       dialogVisible.value = false;
       ElMessage.success({
@@ -51,7 +51,7 @@ const updateUserRole = (userRole) => {
 
 const getRolesList = (queryString, cb) => {
   axios
-    .get('/controller/roles/list', {
+    .get('/roles/list', {
       params: {
         page: 1,
         isAll: true,
@@ -74,7 +74,7 @@ const getUserList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/users/list', {
+    .get('/users/list', {
       params: {
         page: pageCurrNum.value,
         pageSize: pageSize.value,

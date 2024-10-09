@@ -130,7 +130,7 @@ const getCaseIds = (ids) => {
   });
   if (list.length > 0) {
     axios
-      .get('/controller/testCases/findByIdIn', {
+      .get('/testCases/findByIdIn', {
         params: {
           ids: list,
         },
@@ -148,7 +148,7 @@ const getDeviceIds = (ids) => {
   });
   if (list.length > 0) {
     axios
-      .get('/controller/devices/findByIdIn', {
+      .get('/devices/findByIdIn', {
         params: {
           ids: list,
         },
@@ -204,7 +204,7 @@ const getData = () => {
     chart = echarts.init(document.getElementById('projectChart'));
   }
   axios
-    .get('/controller/results/chart', {
+    .get('/results/chart', {
       params: {
         startTime: times.value[0],
         endTime: times.value[1],

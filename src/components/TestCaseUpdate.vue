@@ -52,7 +52,7 @@ const caseForm = ref(null);
 const summit = () => {
   caseForm.value.validate((valid) => {
     if (valid) {
-      axios.put('/controller/testCases', testCase.value).then((resp) => {
+      axios.put('/testCases', testCase.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,
@@ -64,7 +64,7 @@ const summit = () => {
   });
 };
 const getCaseInfo = (id) => {
-  axios.get('/controller/testCases', { params: { id } }).then((resp) => {
+  axios.get('/testCases', { params: { id } }).then((resp) => {
     if (resp.code === 2000) {
       testCase.value = resp.data;
     }
@@ -72,7 +72,7 @@ const getCaseInfo = (id) => {
 };
 const getModuleList = () => {
   axios
-    .get('/controller/modules/list', { params: { projectId: props.projectId } })
+    .get('/modules/list', { params: { projectId: props.projectId } })
     .then((resp) => {
       if (resp.code === 2000) {
         moduleList.value = resp.data;
@@ -83,7 +83,7 @@ const getModuleList = () => {
 const getVersionList = (e) => {
   if (e) {
     axios
-      .get('/controller/versions/list', {
+      .get('/versions/list', {
         params: { projectId: props.projectId },
       })
       .then((resp) => {

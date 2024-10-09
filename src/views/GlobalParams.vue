@@ -33,7 +33,7 @@ const open = () => {
 };
 const getGlobalParamsList = () => {
   axios
-    .get('/controller/globalParams/list', {
+    .get('/globalParams/list', {
       params: {
         projectId: route.params.projectId,
       },
@@ -44,7 +44,7 @@ const getGlobalParamsList = () => {
 };
 const getGlobalInfo = (id) => {
   axios
-    .get('/controller/globalParams', {
+    .get('/globalParams', {
       params: {
         id,
       },
@@ -55,7 +55,7 @@ const getGlobalInfo = (id) => {
 };
 const deleteGlobal = (id) => {
   axios
-    .delete('/controller/globalParams', {
+    .delete('/globalParams', {
       params: {
         id,
       },
@@ -72,7 +72,7 @@ const deleteGlobal = (id) => {
 const summit = () => {
   updateGlobal.value.validate((valid) => {
     if (valid) {
-      axios.put('/controller/globalParams', globalParams.value).then((resp) => {
+      axios.put('/globalParams', globalParams.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,

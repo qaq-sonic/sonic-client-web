@@ -41,7 +41,7 @@ const getJobsList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/jobs/list', {
+    .get('/jobs/list', {
       params: {
         projectId: route.params.projectId,
         page: pageCurrNum.value,
@@ -54,7 +54,7 @@ const getJobsList = (pageNum, pSize) => {
 };
 const getJobInfo = (id) => {
   axios
-    .get('/controller/jobs', {
+    .get('/jobs', {
       params: {
         id,
       },
@@ -65,7 +65,7 @@ const getJobInfo = (id) => {
 };
 const updateStatus = (id, type) => {
   axios
-    .get('/controller/jobs/updateStatus', {
+    .get('/jobs/updateStatus', {
       params: {
         id,
         type,
@@ -81,7 +81,7 @@ const updateStatus = (id, type) => {
 };
 const getSuiteList = () => {
   axios
-    .get('/controller/testSuites/listAll', {
+    .get('/testSuites/listAll', {
       params: {
         projectId: route.params.projectId,
       },
@@ -92,7 +92,7 @@ const getSuiteList = () => {
 };
 const deleteJob = (id) => {
   axios
-    .delete('/controller/jobs', {
+    .delete('/jobs', {
       params: {
         id,
       },
@@ -119,7 +119,7 @@ const getSuiteName = (id) => {
 const summit = () => {
   updateJob.value.validate((valid) => {
     if (valid) {
-      axios.put('/controller/jobs', jobs.value).then((resp) => {
+      axios.put('/jobs', jobs.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,

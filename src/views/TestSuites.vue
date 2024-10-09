@@ -24,7 +24,7 @@ const getTestSuiteList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/testSuites/list', {
+    .get('/testSuites/list', {
       params: {
         projectId: route.params.projectId,
         name: name.value,
@@ -38,7 +38,7 @@ const getTestSuiteList = (pageNum, pSize) => {
 };
 const deleteSuite = (id) => {
   axios
-    .delete('/controller/testSuites', {
+    .delete('/testSuites', {
       params: {
         id,
       },
@@ -55,7 +55,7 @@ const deleteSuite = (id) => {
 const runSuite = (id) => {
   loading.value = true;
   axios
-    .get('/controller/testSuites/runSuite', {
+    .get('/testSuites/runSuite', {
       params: {
         id,
       },

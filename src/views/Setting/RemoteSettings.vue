@@ -26,20 +26,20 @@ const remoteTimeout = ref(0);
 const idleTimeout = ref(0);
 
 const getRemoteTimeout = () => {
-  axios.get('/controller/confList/getRemoteTimeout').then((resp) => {
+  axios.get('/confList/getRemoteTimeout').then((resp) => {
     remoteTimeout.value = resp.data;
   });
 };
 
 const getIdleTimeout = () => {
-  axios.get('/controller/confList/getIdleTimeout').then((resp) => {
+  axios.get('/confList/getIdleTimeout').then((resp) => {
     idleTimeout.value = resp.data;
   });
 };
 
 const setRemoteTimeout = () => {
   axios
-    .get('/controller/confList/setRemoteTimeout', {
+    .get('/confList/setRemoteTimeout', {
       params: {
         timeout: remoteTimeout.value,
       },
@@ -55,7 +55,7 @@ const setRemoteTimeout = () => {
 
 const setIdleTimeout = () => {
   axios
-    .get('/controller/confList/setIdleTimeout', {
+    .get('/confList/setIdleTimeout', {
       params: {
         timeout: idleTimeout.value,
       },

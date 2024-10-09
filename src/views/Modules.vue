@@ -31,7 +31,7 @@ const open = () => {
 };
 const getModuleList = () => {
   axios
-    .get('/controller/modules/list', {
+    .get('/modules/list', {
       params: {
         projectId: route.params.projectId,
       },
@@ -42,7 +42,7 @@ const getModuleList = () => {
 };
 const getModuleInfo = (id) => {
   axios
-    .get('/controller/modules', {
+    .get('/modules', {
       params: {
         id,
       },
@@ -53,7 +53,7 @@ const getModuleInfo = (id) => {
 };
 const deleteModule = (id) => {
   axios
-    .delete('/controller/modules', {
+    .delete('/modules', {
       params: {
         id,
       },
@@ -70,7 +70,7 @@ const deleteModule = (id) => {
 const summit = () => {
   updateModule.value.validate((valid) => {
     if (valid) {
-      axios.put('/controller/modules', modules.value).then((resp) => {
+      axios.put('/modules', modules.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,

@@ -43,7 +43,7 @@ const beforeAvatarUpload = (file) => {
   return false;
 };
 const updateImg = (id, imgUrl) => {
-  axios.put('/controller/devices/updateImg', { id, imgUrl }).then((resp) => {
+  axios.put('/devices/updateImg', { id, imgUrl }).then((resp) => {
     if (resp.code === 2000) {
       ElMessage.success({
         message: resp.message,
@@ -54,7 +54,7 @@ const updateImg = (id, imgUrl) => {
 };
 const saveDetail = (device) => {
   axios
-    .put('/controller/devices/saveDetail', {
+    .put('/devices/saveDetail', {
       id: device.id,
       password: device.password,
       nickName: device.nickName,
@@ -68,7 +68,7 @@ const saveDetail = (device) => {
     });
 };
 const deleteDevice = (id) => {
-  axios.delete('/controller/devices', { params: { id } }).then((resp) => {
+  axios.delete('/devices', { params: { id } }).then((resp) => {
     if (resp.code === 2000) {
       ElMessage.success({
         message: resp.message,

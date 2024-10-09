@@ -35,7 +35,7 @@ const props = defineProps({
 const childStep = ref([]);
 
 const summitStep = () => {
-  axios.put('/controller/steps', props.step).then((resp) => {
+  axios.put('/steps', props.step).then((resp) => {
     if (resp.code === 2000) {
       ElMessage.success({
         message: resp.message,
@@ -45,7 +45,7 @@ const summitStep = () => {
 };
 
 const getPublicStepInfo = (id) => {
-  axios.get('/controller/publicSteps', { params: { id } }).then((resp) => {
+  axios.get('/publicSteps', { params: { id } }).then((resp) => {
     if (resp.code === 2000) {
       if (resp.data.steps) {
         childStep.value = resp.data.steps;

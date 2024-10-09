@@ -49,7 +49,7 @@ const flush = () => {
   if (addToTargetStepId.value > 0) {
     // 需要将新增的步骤挪动到目标行的上面或下面
     axios
-      .get('/controller/steps/stepSortTarget', {
+      .get('/steps/stepSortTarget', {
         params: {
           targetStepId: addToTargetStepId.value,
           addToTargetNext: addToTargetStepNext.value,
@@ -70,7 +70,7 @@ const flush = () => {
 };
 const deleteStep = (id) => {
   axios
-    .get('/controller/steps/deleteCheck', {
+    .get('/steps/deleteCheck', {
       params: {
         id,
       },
@@ -89,7 +89,7 @@ const deleteStep = (id) => {
 };
 const resetCaseId = (id) => {
   axios
-    .get('/controller/steps/resetCaseId', {
+    .get('/steps/resetCaseId', {
       params: {
         id,
       },
@@ -115,7 +115,7 @@ watch(checkDialog, (newValue, oldValue) => {
 });
 const deleteReal = (id) => {
   axios
-    .delete('/controller/steps', {
+    .delete('/steps', {
       params: {
         id,
       },
@@ -132,7 +132,7 @@ const deleteReal = (id) => {
 };
 const getStepsList = () => {
   axios
-    .get('/controller/steps/listAll', {
+    .get('/steps/listAll', {
       params: {
         caseId: props.caseId,
       },
@@ -146,7 +146,7 @@ const runStep = () => {
 };
 const copyStep = (id, toLast) => {
   axios
-    .get('/controller/steps/copy/steps', {
+    .get('/steps/copy/steps', {
       params: {
         id,
         toLast,

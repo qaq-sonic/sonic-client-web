@@ -284,7 +284,7 @@ const summitStep = () => {
             'test()\n';
         }
       }
-      axios.put('/controller/steps', step.value).then((resp) => {
+      axios.put('/steps', step.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,
@@ -303,7 +303,7 @@ const shouldShowByActionsTip = (stepType) => {
 };
 const getPublicStepList = () => {
   axios
-    .get('/controller/publicSteps/findNameByProjectId', {
+    .get('/publicSteps/findNameByProjectId', {
       params: {
         projectId: props.projectId,
         platform: props.platform,
@@ -315,7 +315,7 @@ const getPublicStepList = () => {
 };
 const getStepInfo = (id) => {
   axios
-    .get('/controller/steps', {
+    .get('/steps', {
       params: {
         id,
       },

@@ -48,7 +48,7 @@ const edit = (row) => {
 const summit = () => {
   updateRoles.value.validate((valid) => {
     if (valid) {
-      axios.put('/controller/roles/edit', roleParams.value).then((resp) => {
+      axios.put('/roles/edit', roleParams.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,
@@ -63,7 +63,7 @@ const summit = () => {
 
 const deleteRole = (roleId) => {
   axios
-    .delete('/controller/roles/delete', {
+    .delete('/roles/delete', {
       params: {
         id: roleId,
       },
@@ -82,7 +82,7 @@ const updateRoleResource = (row) => {
   data.append('roleId', lastRoleId.value);
   data.append('resId', row.id);
   data.append('hasAuth', row.hasAuth);
-  axios.put('/controller/roles/update', data).then((resp) => {
+  axios.put('/roles/update', data).then((resp) => {
     if (resp.code === 2000) {
       ElMessage.success({
         message: resp.message,
@@ -94,7 +94,7 @@ const updateRoleResource = (row) => {
 const getRoleResourceList = (roleId) => {
   lastRoleId.value = roleId;
   axios
-    .get('/controller/resources/roleResource', {
+    .get('/resources/roleResource', {
       params: {
         roleId,
       },
@@ -115,7 +115,7 @@ const getRolesList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/roles/list', {
+    .get('/roles/list', {
       params: {
         page: pageCurrNum.value,
         pageSize: pageSize.value,

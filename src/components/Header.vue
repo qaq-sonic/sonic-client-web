@@ -62,7 +62,7 @@ watch(dialogChangePwd, (newValue, oldValue) => {
 });
 const generateToken = () => {
   axios
-    .get('/controller/users/generateToken', {
+    .get('/users/generateToken', {
       params: { day: day.value },
     })
     .then((resp) => {
@@ -78,7 +78,7 @@ const changePwdSummit = () => {
   changePwdForm.value.validate((valid) => {
     if (valid) {
       axios
-        .put('/controller/users', {
+        .put('/users', {
           oldPwd: changePwd.value.oldPwd,
           newPwd: changePwd.value.newPwd,
         })
@@ -107,7 +107,7 @@ const flush = () => {
   getProjectList();
 };
 const getProjectList = () => {
-  axios.get('/controller/projects/list').then((resp) => {
+  axios.get('/projects/list').then((resp) => {
     projectData.value = resp.data;
     store.commit('saveProjectList', projectData.value);
   });

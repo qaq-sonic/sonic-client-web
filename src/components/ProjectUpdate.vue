@@ -30,7 +30,7 @@ const img = import.meta.globEager('./../assets/img/*');
 const robotData = ref([]);
 const getAlertRobots = () => {
   axios
-    .get('/controller/alertRobots/listAll', {
+    .get('/alertRobots/listAll', {
       params: {
         projectId: route.params.projectId,
         scene: 'testsuite',
@@ -77,7 +77,7 @@ const emit = defineEmits(['flush']);
 const summit = () => {
   projectUpdateForm.value.validate((valid) => {
     if (valid) {
-      axios.put('/controller/projects', project.value).then((resp) => {
+      axios.put('/projects', project.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,
@@ -95,7 +95,7 @@ const fullscreenLoading = ref(false);
 const delProject = () => {
   fullscreenLoading.value = true;
   axios
-    .delete('/controller/projects', { params: { id: route.params.projectId } })
+    .delete('/projects', { params: { id: route.params.projectId } })
     .then((resp) => {
       fullscreenLoading.value = false;
       if (resp.code === 2000) {

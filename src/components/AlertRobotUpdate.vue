@@ -42,7 +42,7 @@ const submit = () => {
 const queryDefault = (type, scene) => {
   if (!scene || !type) return;
   axios
-    .get('/controller/alertRobots/findDefaultTemplate', {
+    .get('/alertRobots/findDefaultTemplate', {
       params: {
         type,
         scene,

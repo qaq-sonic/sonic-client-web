@@ -38,7 +38,7 @@ const getPackageInfoList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/packages/list', {
+    .get('/packages/list', {
       params: {
         projectId: props.projectId,
         platform: props.platformType,

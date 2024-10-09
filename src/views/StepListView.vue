@@ -28,7 +28,7 @@ const getImg = (name) => {
 };
 const getCaseInfo = (id) => {
   axios
-    .get('/controller/testCases', {
+    .get('/testCases', {
       params: {
         id,
       },

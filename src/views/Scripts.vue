@@ -37,7 +37,7 @@ const getScriptList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/scripts/list', {
+    .get('/scripts/list', {
       params: {
         projectId: route.params.projectId,
         name: name.value,
@@ -52,7 +52,7 @@ const getScriptList = (pageNum, pSize) => {
 };
 const deleteScript = (id) => {
   axios
-    .delete('/controller/scripts', {
+    .delete('/scripts', {
       params: {
         id,
       },

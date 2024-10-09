@@ -116,7 +116,7 @@ const switchType = (e) => {
 const getRecord = () => {
   recordUrl.value = '';
   axios
-    .get('/controller/resultDetail/listAll', {
+    .get('/resultDetail/listAll', {
       params: {
         caseId: caseId.value,
         resultId: route.params.resultId,
@@ -162,7 +162,7 @@ const clearPerfmon = () => {
 };
 const getPerform = () => {
   axios
-    .get('/controller/resultDetail/listAll', {
+    .get('/resultDetail/listAll', {
       params: {
         caseId: caseId.value,
         resultId: route.params.resultId,
@@ -274,7 +274,7 @@ const loadMore = () => {
 const getStepList = () => {
   stepLoading.value = true;
   axios
-    .get('/controller/resultDetail/list', {
+    .get('/resultDetail/list', {
       params: {
         caseId: caseId.value,
         resultId: route.params.resultId,
@@ -299,7 +299,7 @@ const getDeviceList = (ids) => {
   });
   if (list.length > 0) {
     axios
-      .get('/controller/devices/findByIdIn', {
+      .get('/devices/findByIdIn', {
         params: {
           ids: list,
         },
@@ -324,7 +324,7 @@ const getDeviceList = (ids) => {
   }
 };
 const getResultInfo = (id) => {
-  axios.get('/controller/results', { params: { id } }).then(async (resp) => {
+  axios.get('/results', { params: { id } }).then(async (resp) => {
     if (resp.code === 2000) {
       results.value = resp.data;
       findCaseStatus(results.value.id);
@@ -350,7 +350,7 @@ const findCaseStatus = (id) => {
     },
   };
   axios
-    .get('/controller/results/findCaseStatus', { params: { id } })
+    .get('/results/findCaseStatus', { params: { id } })
     .then((resp) => {
       if (resp.code === 2000) {
         testCaseList.value = resp.data;

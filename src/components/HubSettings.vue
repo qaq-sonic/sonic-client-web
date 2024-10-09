@@ -35,7 +35,7 @@ const line = ref([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 const listByAgentId = () => {
   line.value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   axios
-    .get('/controller/devices/listByAgentId', {
+    .get('/devices/listByAgentId', {
       params: {
         agentId: props.agentId,
       },
@@ -53,7 +53,7 @@ const listByAgentId = () => {
 };
 const updatePosition = (id, position) => {
   axios
-    .get('/controller/devices/updatePosition', {
+    .get('/devices/updatePosition', {
       params: {
         id,
         position,
@@ -70,7 +70,7 @@ const updatePosition = (id, position) => {
 };
 const hubControl = (position, type) => {
   axios
-    .get('/controller/agents/hubControl', {
+    .get('/agents/hubControl', {
       params: {
         id: props.agentId,
         position,

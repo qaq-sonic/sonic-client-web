@@ -16,7 +16,7 @@ const path = ref('');
 
 const updateStatus = (id, needAuth) => {
   axios
-    .put('/controller/resources/edit', {
+    .put('/resources/edit', {
       id,
       needAuth,
     })
@@ -31,7 +31,7 @@ const updateStatus = (id, needAuth) => {
 
 const refresh = (id, needAuth) => {
   axios
-    .post('/controller/resources/refresh', {
+    .post('/resources/refresh', {
       id,
       needAuth,
     })
@@ -49,7 +49,7 @@ const getResourceList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/resources/list', {
+    .get('/resources/list', {
       params: {
         page: pageCurrNum.value,
         pageSize: pageSize.value,

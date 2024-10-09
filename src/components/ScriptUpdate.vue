@@ -50,7 +50,7 @@ const scriptForm = ref(null);
 const summit = () => {
   scriptForm.value.validate((valid) => {
     if (valid) {
-      axios.put('/controller/scripts', script.value).then((resp) => {
+      axios.put('/scripts', script.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,
@@ -62,7 +62,7 @@ const summit = () => {
   });
 };
 const getInfo = (id) => {
-  axios.get('/controller/scripts', { params: { id } }).then((resp) => {
+  axios.get('/scripts', { params: { id } }).then((resp) => {
     if (resp.code === 2000) {
       script.value = resp.data;
     }

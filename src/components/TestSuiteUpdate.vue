@@ -78,7 +78,7 @@ const deviceData = ref([]);
 const deviceDataBack = ref([]);
 const getDevice = () => {
   axios
-    .get('/controller/devices/listAll', {
+    .get('/devices/listAll', {
       params: { platform: testSuite.value.platform },
     })
     .then((resp) => {
@@ -91,7 +91,7 @@ const getDevice = () => {
 const robotData = ref([]);
 const getAlertRobots = () => {
   axios
-    .get('/controller/alertRobots/listAll', {
+    .get('/alertRobots/listAll', {
       params: {
         projectId: route.params.projectId,
         scene: 'testsuite',
@@ -112,7 +112,7 @@ const getTestCaseList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/testCases/list', {
+    .get('/testCases/list', {
       params: {
         platform: testSuite.value.platform,
         projectId: route.params.projectId,
@@ -145,7 +145,7 @@ const emit = defineEmits(['flush']);
 const summit = () => {
   suiteForm.value.validate((valid) => {
     if (valid) {
-      axios.put('/controller/testSuites', testSuite.value).then((resp) => {
+      axios.put('/testSuites', testSuite.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,
@@ -157,7 +157,7 @@ const summit = () => {
   });
 };
 const getSuiteInfo = (id) => {
-  axios.get('/controller/testSuites', { params: { id } }).then((resp) => {
+  axios.get('/testSuites', { params: { id } }).then((resp) => {
     if (resp.code === 2000) {
       testSuite.value = resp.data;
       if (testSuite.value.platform !== null) {

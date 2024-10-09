@@ -12,7 +12,7 @@ const pageData = ref([]);
 const getGlobalParamsList = (event) => {
   if (event) {
     axios
-      .get('/controller/globalParams/list', {
+      .get('/globalParams/list', {
         params: {
           projectId: props.projectId,
         },

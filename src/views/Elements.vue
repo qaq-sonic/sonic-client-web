@@ -49,7 +49,7 @@ const getElementList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/elements/list', {
+    .get('/elements/list', {
       params: {
         projectId: route.params.projectId,
         eleTypes: types.value.length > 0 ? types.value : undefined,
@@ -66,7 +66,7 @@ const getElementList = (pageNum, pSize) => {
 };
 const deleteEle = (id) => {
   axios
-    .get('/controller/elements/deleteCheck', {
+    .get('/elements/deleteCheck', {
       params: {
         id,
       },
@@ -86,7 +86,7 @@ const deleteEle = (id) => {
 // 复制元素，复制以后重新拉去列表
 const copyElement = (id) => {
   axios
-    .get('/controller/elements/copyEle', {
+    .get('/elements/copyEle', {
       params: {
         id,
       },
@@ -102,7 +102,7 @@ const copyElement = (id) => {
 };
 const deleteReal = (id) => {
   axios
-    .delete('/controller/elements', {
+    .delete('/elements', {
       params: {
         id,
       },
@@ -120,7 +120,7 @@ const deleteReal = (id) => {
 const moduleList = ref([]);
 const getModuleList = () => {
   axios
-    .get('/controller/modules/list', {
+    .get('/modules/list', {
       params: { projectId: route.params.projectId },
     })
     .then((resp) => {

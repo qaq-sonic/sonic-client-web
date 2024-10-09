@@ -21,15 +21,8 @@ import { ElMessage } from 'element-plus';
 import { i18n, $tc } from '@/locales/setupI18n';
 import { router } from '../router/index.js';
 
-let baseURL = '';
-if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3000/server/api';
-}
-if (process.env.NODE_ENV === 'production') {
-  baseURL = '/server/api';
-}
+const baseURL = '/api/sonic';
 const $http = axios.create();
-baseURL = baseURL.replace(':80/', '/');
 $http.defaults.baseURL = baseURL;
 // $http.defaults.timeout = 20000;
 $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

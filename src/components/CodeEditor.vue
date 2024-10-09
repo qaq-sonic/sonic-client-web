@@ -158,7 +158,7 @@ const name = ref('');
 const getScriptList = (pageNum, pSize) => {
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/scripts/list', {
+    .get('/scripts/list', {
       params: {
         projectId: props.projectId,
         name: name.value,

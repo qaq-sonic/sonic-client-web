@@ -17,7 +17,7 @@ const getResultList = (pageNum, pSize) => {
   pageSize.value = pSize || pageSize.value;
   pageCurrNum.value = pageNum || pageCurrNum.value;
   axios
-    .get('/controller/results/list', {
+    .get('/results/list', {
       params: {
         projectId: route.params.projectId,
         page: pageCurrNum.value,
@@ -30,7 +30,7 @@ const getResultList = (pageNum, pSize) => {
 };
 const delResult = (id) => {
   axios
-    .delete('/controller/results', {
+    .delete('/results', {
       params: {
         id,
       },
@@ -46,7 +46,7 @@ const delResult = (id) => {
 };
 const forceStopSuite = (id) => {
   axios
-    .get('/controller/testSuites/forceStopSuite', {
+    .get('/testSuites/forceStopSuite', {
       params: {
         resultId: id,
       },

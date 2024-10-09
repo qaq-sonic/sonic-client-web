@@ -31,7 +31,7 @@ const open = () => {
 };
 const getVersionList = () => {
   axios
-    .get('/controller/versions/list', {
+    .get('/versions/list', {
       params: {
         projectId: route.params.projectId,
       },
@@ -42,7 +42,7 @@ const getVersionList = () => {
 };
 const getVersionInfo = (id) => {
   axios
-    .get('/controller/versions', {
+    .get('/versions', {
       params: {
         id,
       },
@@ -53,7 +53,7 @@ const getVersionInfo = (id) => {
 };
 const deleteVersion = (id) => {
   axios
-    .delete('/controller/versions', {
+    .delete('/versions', {
       params: {
         id,
       },
@@ -70,7 +70,7 @@ const deleteVersion = (id) => {
 const summit = () => {
   updateVersion.value.validate((valid) => {
     if (valid) {
-      axios.put('/controller/versions', versions.value).then((resp) => {
+      axios.put('/versions', versions.value).then((resp) => {
         if (resp.code === 2000) {
           ElMessage.success({
             message: resp.message,
