@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import { $tc } from '@/locales/setupI18n';
 
 const getRoutes = () => [
@@ -216,7 +216,7 @@ export let router = null;
 
 export function setupRouter(app) {
   router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes: getRoutes(),
   });
   app.use(router);

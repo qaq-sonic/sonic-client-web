@@ -7,7 +7,6 @@ GIT_COMMIT:=$(shell git describe --dirty --always)
 EXTRA_RUN_ARGS?=
 
 build:
-	npm install && npm run build
 	docker build --platform=linux/amd64 -f Dockerfile -t $(DOCKER_IMAGE_NAME):$(VERSION) .
 
 push:
