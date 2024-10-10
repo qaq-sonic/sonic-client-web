@@ -502,13 +502,13 @@ const openSocket = (host, port, key, udId) => {
   if ('WebSocket' in window) {
     //
     websocket = new WebSocket(
-      `ws://${host}:${port}/websockets/android/${key}/${udId}/${localStorage.getItem(
+      `wss://${host}:${port}/websockets/android/${key}/${udId}/${localStorage.getItem(
         'SonicToken'
       )}`
     );
     //
     __Scrcpy = new Scrcpy({
-      socketURL: `ws://${host}:${port}/websockets/android/screen/${key}/${udId}/${localStorage.getItem(
+      socketURL: `wss://${host}:${port}/websockets/android/screen/${key}/${udId}/${localStorage.getItem(
         'SonicToken'
       )}`,
       node: 'scrcpy-video',
@@ -519,7 +519,7 @@ const openSocket = (host, port, key, udId) => {
     changeScreenMode(screenMode.value, 1);
     //
     terminalWebsocket = new WebSocket(
-      `ws://${host}:${port}/websockets/android/terminal/${key}/${udId}/${localStorage.getItem(
+      `wss://${host}:${port}/websockets/android/terminal/${key}/${udId}/${localStorage.getItem(
         'SonicToken'
       )}`
     );
@@ -1688,7 +1688,7 @@ const isConnectAudio = ref(false);
 const initAudioPlayer = () => {
   audioPlayer = new AudioProcessor({
     node: 'audio-player',
-    wsUrl: `ws://${agent.value.host}:${agent.value.port}/websockets/audio/${agent.value.secretKey}/${device.value.udId}`,
+    wsUrl: `wss://${agent.value.host}:${agent.value.port}/websockets/audio/${agent.value.secretKey}/${device.value.udId}`,
     onReady() {
       isConnectAudio.value = true;
     },

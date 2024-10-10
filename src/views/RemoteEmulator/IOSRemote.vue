@@ -502,17 +502,17 @@ const setImgData = (data) => {
 const openSocket = (host, port, key, udId) => {
   if ('WebSocket' in window) {
     websocket = new WebSocket(
-      `ws://${host}:${port}/websockets/ios/${key}/${udId}/${localStorage.getItem(
+      `wss://${host}:${port}/websockets/ios/${key}/${udId}/${localStorage.getItem(
         'SonicToken'
       )}`
     );
     terminalWebsocket = new WebSocket(
-      `ws://${host}:${port}/websockets/ios/terminal/${key}/${udId}/${localStorage.getItem(
+      `wss://${host}:${port}/websockets/ios/terminal/${key}/${udId}/${localStorage.getItem(
         'SonicToken'
       )}`
     );
     screenWebsocket = new WebSocket(
-      `ws://${host}:${port}/websockets/ios/screen/${key}/${udId}/${localStorage.getItem(
+      `wss://${host}:${port}/websockets/ios/screen/${key}/${udId}/${localStorage.getItem(
         'SonicToken'
       )}`
     );
