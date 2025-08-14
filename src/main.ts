@@ -18,11 +18,12 @@
 import { createApp } from 'vue';
 import ElementPlus, { ElMessage } from 'element-plus';
 import App from './App.vue';
-import { setupRouter, router } from './router/index.js';
-import store from './store/index.js';
-import 'element-plus/dist/index.css';
+import { setupRouter, router } from '@/router';
+import store from '@/store';
 import axios from './http/axios';
-import { setupI18n, $tc } from './locales/setupI18n';
+import { setupI18n, $tc } from '@/locales/setupI18n';
+
+import 'element-plus/dist/index.css';
 
 async function initApp() {
   const app = createApp(App);
@@ -74,10 +75,11 @@ initApp().then(() => {
       });
     }
     if (store.state.token.length === 0 && to.path !== '/Login') {
-      next({
-        path: '/Login',
-        query: { redirect: to.fullPath },
-      });
+      next();
+      // next({
+      //   path: '/Login',
+      //   query: { redirect: to.fullPath },
+      // });
     } else {
       next();
     }

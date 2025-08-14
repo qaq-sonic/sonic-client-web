@@ -1,9 +1,10 @@
-<script setup>
-import Header from '../components/Header.vue';
+<script setup lang="ts">
+import Header from '@/components/Header.vue';
+import { ElContainer } from 'element-plus';
 </script>
 
 <template>
-  <el-container>
+  <ElContainer>
     <Header></Header>
-  </el-container>
+  </ElContainer>
 </template>

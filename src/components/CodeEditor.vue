@@ -21,7 +21,6 @@ import {
   shallowRef,
   reactive,
   computed,
-  defineEmits,
   ref,
   onMounted,
 } from 'vue';
@@ -307,7 +306,7 @@ onMounted(() => {
   </div>
   <Codemirror
     ref="cm"
-    v-model="code"
+    :value="code"
     class="codemirror"
     :autofocus="config.autofocus"
     :placeholder="config.placeholder"

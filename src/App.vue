@@ -1,9 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import './assets/light.css';
 import './assets/dark.css';
 import { ref, watch, computed } from 'vue';
 import { useStore } from 'vuex';
 import { getElementPlusLocale } from './locales/setupI18n';
+import { RouterView } from 'vue-router';
+import { ElConfigProvider } from 'element-plus';
 
 const store = useStore();
 const locale = ref(getElementPlusLocale());
@@ -17,9 +19,9 @@ watch(storelocale, () => {
 </script>
 
 <template>
-  <el-config-provider :locale="locale">
-    <router-view />
-  </el-config-provider>
+  <ElConfigProvider :locale="locale">
+    <RouterView />
+  </ElConfigProvider>
 </template>
 
 <style>

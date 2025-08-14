@@ -19,7 +19,7 @@ import axios from 'axios';
 import qs from 'qs';
 import { ElMessage } from 'element-plus';
 import { i18n, $tc } from '@/locales/setupI18n';
-import { router } from '../router/index.js';
+import { router } from '@/router';
 
 const baseURL = '/api/sonic';
 const $http = axios.create();

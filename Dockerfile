@@ -6,10 +6,10 @@ COPY src src
 COPY package.json package.json
 COPY index.html index.html
 COPY tsconfig.json tsconfig.json
-COPY vite.config.js vite.config.js
+COPY vite.config.ts vite.config.ts
 
 
-RUN npm install
+RUN npm install --registry=https://registry.npmmirror.com
 RUN npm run build
 
 FROM nginx:stable-alpine
